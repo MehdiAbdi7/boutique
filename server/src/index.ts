@@ -1,7 +1,9 @@
 import app from "./app.js";
+import { env } from "./config/env.js";
+import { connectDB } from "./config/db.js";
 
-const PORT = process.env.PORT || 5000;
+await connectDB();
 
-app.listen(PORT, () => {
-  console.log(`API démarrée sur le port ${PORT}`);
+app.listen(env.PORT, () => {
+  console.log(`API démarrée sur le port ${env.PORT}`);
 });
