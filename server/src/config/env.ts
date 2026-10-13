@@ -5,7 +5,7 @@ const envSchema = z.object({
     .enum(["development", "production", "test"])
     .default("development"),
   PORT: z.coerce.number().int().positive().default(5000),
-  MONGODB_URI: z.string().min(1, { error: "MONGODB_URI is required" }),
+  DATABASE_URL: z.string().min(1, { error: "DATABASE_URL is required" }),
 });
 
 const result = envSchema.safeParse(process.env);
